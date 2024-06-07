@@ -6,6 +6,7 @@ import { CheckCircle2, MoreVertical, XCircle } from "lucide-react"
 import { formatCurrency, formatNumber } from "@/lib/formatters"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import db from "@/src/db/db"
+import { Prisma } from "@prisma/client"
 
 export default function AdminProductPage() {
     return( 
@@ -85,15 +86,7 @@ async function ProductsTable() {
                         Edit
                       </Link>
                     </DropdownMenuItem>
-                    <ActiveToggleDropdownItem
-                      id={product.id}
-                      isAvailableForPurchase={product.isAvailableForPurchase}
-                    />
-                    <DropdownMenuSeparator />
-                    <DeleteDropdownItem
-                      id={product.id}
-                      disabled={product._count.orders > 0}
-                    />
+                    
                   </DropdownMenuContent>
                 </DropdownMenu>
               </TableCell>
