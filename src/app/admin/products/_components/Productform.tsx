@@ -41,7 +41,6 @@ export default function ProductForm() {
         id="desc" 
         required 
         name="desc"></Input>
-        {error?.description && <div className="text-destructive">{error?.description}</div>}
     </div>
     <div className="space-y-2">
         <Label htmlFor="file">File</Label>
@@ -67,7 +66,7 @@ function _SubmitButton() {
     const { pending } = useFormStatus()
 
     return (
-        <Button type="button" disabled={pending}>
+        <Button type="submit" disabled={pending}>
             {pending ? "Saving..." : "Save"}
         </Button>
     )

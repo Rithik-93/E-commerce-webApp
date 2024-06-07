@@ -22,7 +22,7 @@ const addSchema = z.object({
 })
 
 export async function addProduct(prevState:unknown,  formData: FormData) {
-    console.log(formData)
+    
     const result = addSchema.safeParse(Object.fromEntries(formData.entries()));
     if (result.success === false) {
         return result.error.formErrors.fieldErrors
@@ -49,6 +49,8 @@ export async function addProduct(prevState:unknown,  formData: FormData) {
       priceInCents: data.priceInCents,
       filePath,
       imagePath,
-    },
+    }
   })
+  console.log(formData)
+  redirect('/admin/products')
 }
